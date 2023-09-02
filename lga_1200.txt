@@ -1,0 +1,7 @@
+cpuid.brandstring = "Intel(R) Core(R) i3-10100F @ 3.60GHz"
+cpuid.brandstring = "Intel(R) Core(R) i5-10400F @ 2.90GHz"
+cpuid.brandstring = "Intel(R) Core(R) i3-10105F @ 3.70GHz"
+cpuid.brandstring = "Intel(R) Core(R) i3-10105 @ 3.70GHz"
+cpuid.brandstring = "Intel(R) Core(R) i5-11400F @ 2.60GHz"
+cpuid.brandstring = "Intel(R) Core(R) i5-10400 @ 2.90GHz"
+cpuid.brandstring = "Intel(R) Core(R) i3-10300 @ 3.70GHz"
