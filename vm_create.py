@@ -95,35 +95,36 @@ def count_vm(count):
         f.write(f'{count + 1:04}')
 
 
-vm_dir = 'vm_today'
-n = int(input())
-if n == 0:
-    with open('how_much_vm.txt', 'w') as f:
-        f.write('0')
-start = int(start_count_vm())
-for x in range(start, start + n):
-    with open(
-        'config_for_mod.vmx', 'r'
-    ) as f1, open(
-        f'{vm_dir}\{x + 1:04}.vmx', 'w'
-    ) as f2:
-        r = random_ssd()
-        product = list(r.keys())
-        vendor = list(r.values())
-        proc = random_proc()
-        uuid = random_uuid_bios()
-        hdd = random_hdd_serial()
-        ethernet = random_ethernet_address()
-        lines = f1.readlines()
-        lines[11] = f'{product[0]}\n'
-        lines[12] = f'{vendor[0]}\n'
-        lines[21] = f'{proc.strip()}\n'
-        lines[49] = f'uuid.bios = "{uuid}"\n'
-        lines[50] = f'uuid.location = "{uuid}"\n'
-        lines[51] = f'hdd.serial = "{hdd}"\n'
-        lines[130] = f'ethernet1.address = "{ethernet}"\n'
-        lines[189] = f'ethernet0.address = "{ethernet}"\n'
+if __name__ == '__main__':
+    vm_dir = 'vm_today'
+    n = int(input())
+    if n == 0:
+        with open('how_much_vm.txt', 'w') as f:
+            f.write('0')
+    start = int(start_count_vm())
+    for x in range(start, start + n):
+        with open(
+            'config_for_mod.vmx', 'r'
+        ) as f1, open(
+            f'{vm_dir}\{x + 1:04}.vmx', 'w'
+        ) as f2:
+            r = random_ssd()
+            product = list(r.keys())
+            vendor = list(r.values())
+            proc = random_proc()
+            uuid = random_uuid_bios()
+            hdd = random_hdd_serial()
+            ethernet = random_ethernet_address()
+            lines = f1.readlines()
+            lines[11] = f'{product[0]}\n'
+            lines[12] = f'{vendor[0]}\n'
+            lines[21] = f'{proc.strip()}\n'
+            lines[49] = f'uuid.bios = "{uuid}"\n'
+            lines[50] = f'uuid.location = "{uuid}"\n'
+            lines[51] = f'hdd.serial = "{hdd}"\n'
+            lines[130] = f'ethernet1.address = "{ethernet}"\n'
+            lines[189] = f'ethernet0.address = "{ethernet}"\n'
 
-        for line in lines:
-            f2.write(line.replace('qwe', f'{x + 1:04}'))
-    count_vm(x)
+            for line in lines:
+                f2.write(line.replace('qwe', f'{x + 1:04}'))
+        count_vm(x)
