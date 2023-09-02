@@ -1,0 +1,1 @@
+python "C:\Users\Mangeko\Desktop\Python_Learning\Dev\vm_create_script\vm_create.py"
